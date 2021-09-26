@@ -26,6 +26,7 @@
 		<!-- ToDoリスト表示 -->
 		<table>
 		<c:forEach items="${ list }" var="todo">
+			<c:if test="${ todo.finished == '0'}">
 			<tr>
 				<td><input type="checkbox" name="finished" value="${ todo.id }"></td>
 				<td>[<c:out value="${ todo.id }" />]</td>
@@ -34,10 +35,10 @@
 				<td><c:out value="${ todo.member }" /></td>
 				<td><a href="edit?id=${ todo.id }">[編集]</a></td>
 			</tr>
+			</c:if>
 		</c:forEach>
 		</table>
 	</form>
-
 
 </body>
 </html>

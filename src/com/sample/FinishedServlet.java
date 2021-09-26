@@ -59,7 +59,7 @@ public class FinishedServlet extends HttpServlet {
 
 		session.setAttribute("list", list);
 
-		RequestDispatcher rd = request.getRequestDispatcher("/todo.jsp");
+		RequestDispatcher rd = request.getRequestDispatcher("/finished.jsp");
 		rd.forward(request, response);
 		return;
 	}
