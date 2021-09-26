@@ -32,11 +32,22 @@ public class ToDoEditServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		HttpSession session = request.getSession();
 		List<ToDo> list = (List<ToDo>) session.getAttribute("list");
-		// ToDo todo = (ToDo)session.getAttribute("todo");
 
+		// 編集ボタンを押してリクエストされたidを取得する
 		int id = Integer.parseInt(request.getParameter("id"));
 
-		// session.setAttribute("id", id);
+		// 編集用のインスタンス生成
+		ToDo todo = new ToDo(id, null, null, null, false);
+
+		for (ToDo t : list) {
+			// セッションのToDoリストと編集リクエストされたidが等しかったら
+			if (t.getId() == id) {
+				// 編集用インスタンスに編集したいToDoのデータを入れる
+				todo = t;
+				// セッションにセットする
+				session.setAttribute("todo", todo);
+			}
+		}
 
 		RequestDispatcher rd = request.getRequestDispatcher("/edit.jsp");
 		rd.forward(request, response);

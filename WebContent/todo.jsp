@@ -6,7 +6,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>ToDoリスト</title>
 </head>
 <body>
 	<h1>ToDoリスト</h1>
@@ -21,11 +21,11 @@
 	<table>
 	<c:forEach items="${ list }" var="todo">
 		<tr>
-			<td><c:out value="${ todo.id }" />：</td>
+			<td>[<c:out value="${ todo.id }" />]</td>
 			<td><c:out value="${ todo.task }" /></td>
 			<td><fmt:formatDate value="${ todo.deadline }" /></td>
 			<td><c:out value="${ todo.member }" /></td>
-			<a href="edit?id=${ todo.id }">[編集]</a>
+			<td><a href="edit?id=${ todo.id }">[編集]</a></td>
 		</tr>
 	</c:forEach>
 	</table>

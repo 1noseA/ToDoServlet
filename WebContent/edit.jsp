@@ -6,22 +6,19 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>ToDo編集</title>
 </head>
 <body>
-	<h1>修正</h1>
+	<h1>編集</h1>
 
-	<c:forEach var="todo" items="${ list }">
-		<c:if test="${ sessionScope.id == todo.id }">
-			<c:out value="${ todo.id }" />
-			<form action="edit" method="post">
-				タスク：<input type="text" name="task" value="${ todo.task }" />
-				期日：<input type="text" name="deadline" value="${ todo.deadline }" />
-				担当：<input type="text" name="member" value="${ todo.member }" />
-				<input type="submit" value="修正" />
-			</form>
-		</c:if>
-	</c:forEach>
-
+		<form action="edit" method="post">
+			[<c:out value="${ todo.id }" />]
+			<%-- valueの中にEL式を入れることでフォームの中に表示される --%>
+			タスク：<input type="text" name="task" value="${ todo.task }" />
+			<%-- input valueの中にそのままJSTLを入れてもいいっぽい --%>
+			期日：<input type="text" name="deadline" value="<fmt:formatDate value="${ todo.deadline }" />" />
+			担当：<input type="text" name="member" value="${ todo.member }" />
+			<input type="submit" value="編集" />
+		</form>
 </body>
 </html>
