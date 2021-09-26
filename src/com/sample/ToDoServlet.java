@@ -67,8 +67,8 @@ public class ToDoServlet extends HttpServlet {
 			e.printStackTrace();
 		}
 		String member = request.getParameter("member");
-		boolean isDone = false;
-		ToDo todo = new ToDo(id + 1, task, deadline, member, isDone);
+		String finished = "0";
+		ToDo todo = new ToDo(id + 1, task, deadline, member, finished);
 
 		list.add(todo);
 		session.setAttribute("list", list);

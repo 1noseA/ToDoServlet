@@ -1,6 +1,8 @@
 package com.sample;
 
 import java.io.IOException;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.List;
 
 import javax.servlet.RequestDispatcher;
@@ -37,7 +39,7 @@ public class ToDoEditServlet extends HttpServlet {
 		int id = Integer.parseInt(request.getParameter("id"));
 
 		// 編集用のインスタンス生成
-		ToDo todo = new ToDo(id, null, null, null, false);
+		ToDo todo = new ToDo(id, null, null, null, "0");
 
 		for (ToDo t : list) {
 			// セッションのToDoリストと編集リクエストされたidが等しかったら
@@ -59,8 +61,39 @@ public class ToDoEditServlet extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		doGet(request, response);
+		HttpSession session = request.getSession();
+		List<ToDo> list = (List<ToDo>) session.getAttribute("list");
+
+		int id = Integer.parseInt(request.getParameter("id"));
+		int index = 0;
+		for (ToDo t : list) {
+			if (t.getId() == id) {
+				break;
+			}
+			index++;
+		}
+
+		ToDo todo = (ToDo) session.getAttribute("todo");
+
+		todo.setTask(request.getParameter("task"));
+		SimpleDateFormat format = new SimpleDateFormat("yyyy/MM/dd");
+		try {
+			todo.setDeadline(format.parse(request.getParameter("deadline")));
+		} catch (ParseException e) {
+			// TODO 自動生成された catch ブロック
+			e.printStackTrace();
+		}
+		todo.setMember(request.getParameter("member"));
+		todo.setFinished(request.getParameter("finished"));
+
+		// listの何番目かにしないと落ちる
+		list.set(index, todo);
+		session.setAttribute("list", list);
+
+		RequestDispatcher rd = request.getRequestDispatcher("/todo.jsp");
+		rd.forward(request, response);
+		return;
+
 	}
 
 }

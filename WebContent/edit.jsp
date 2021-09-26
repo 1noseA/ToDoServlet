@@ -13,6 +13,7 @@
 
 		<form action="edit" method="post">
 			[<c:out value="${ todo.id }" />]
+			<input type="hidden" name="id" value="${todo.id}" />
 			<%-- valueの中にEL式を入れることでフォームの中に表示される --%>
 			タスク：<input type="text" name="task" value="${ todo.task }" />
 			<%-- input valueの中にそのままJSTLを入れてもいいっぽい --%>
