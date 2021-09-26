@@ -11,6 +11,7 @@
 <body>
 	<h1>ToDoリスト</h1>
 
+	<!-- ToDo入力 -->
 	<form action="ToDo" method="post">
 		タスク：<input type="text" name="task" />
 		期日：<input type="text" name="deadline" />
@@ -18,17 +19,24 @@
 		<input type="submit" value="送信" />
 	</form>
 
-	<table>
-	<c:forEach items="${ list }" var="todo">
-		<tr>
-			<td>[<c:out value="${ todo.id }" />]</td>
-			<td><c:out value="${ todo.task }" /></td>
-			<td><fmt:formatDate value="${ todo.deadline }" /></td>
-			<td><c:out value="${ todo.member }" /></td>
-			<td><a href="edit?id=${ todo.id }">[編集]</a></td>
-		</tr>
-	</c:forEach>
-	</table>
+	<!-- 完了ボタン -->
+	<form action="finished" method="post">
+		<input type="submit" value="完了" />
+
+		<!-- ToDoリスト表示 -->
+		<table>
+		<c:forEach items="${ list }" var="todo">
+			<tr>
+				<td><input type="checkbox" name="finished" value="${ todo.id }"></td>
+				<td>[<c:out value="${ todo.id }" />]</td>
+				<td><c:out value="${ todo.task }" /></td>
+				<td><fmt:formatDate value="${ todo.deadline }" /></td>
+				<td><c:out value="${ todo.member }" /></td>
+				<td><a href="edit?id=${ todo.id }">[編集]</a></td>
+			</tr>
+		</c:forEach>
+		</table>
+	</form>
 
 
 </body>

@@ -84,7 +84,7 @@ public class ToDoEditServlet extends HttpServlet {
 			e.printStackTrace();
 		}
 		todo.setMember(request.getParameter("member"));
-		todo.setFinished(request.getParameter("finished"));
+		// todo.setFinished(request.getParameter("finished"));
 
 		// listの何番目かにしないと落ちる
 		list.set(index, todo);
