@@ -47,8 +47,10 @@ public class FinishedServlet extends HttpServlet {
 		// StreamAPIでString配列をint配列にする
 		int[] finishArrays = Stream.of(ids).mapToInt(Integer::parseInt).toArray();
 
+		// 画面遷移のための完了フラグ
+		boolean isDone = false;
 		// 完了にしたタスクがリストの何番目かを求め、
-		// 完了フラグに1をセットしてlistのデータを更新
+		// 完了済みに1をセットしてlistのデータを更新
 		for (int i = 0; i < list.size(); i++) {
 			for(int j = 0; j < finishArrays.length; j++) {
 				if (list.get(i).getId() == finishArrays[j]) {
@@ -56,6 +58,7 @@ public class FinishedServlet extends HttpServlet {
 					// 三項演算子うまくいかなかった
 					if (list.get(i).getFinished() == "0") {
 						list.get(i).setFinished("1");
+						isDone = true;
 					} else {
 						list.get(i).setFinished("0");
 					}
@@ -65,9 +68,15 @@ public class FinishedServlet extends HttpServlet {
 
 		session.setAttribute("list", list);
 
-		RequestDispatcher rd = request.getRequestDispatcher("/finished.jsp");
+		RequestDispatcher rd;
+		// 未完了→完了だったら完了リストへ遷移（isDoneがtrue）
+		if (isDone) {
+			rd = request.getRequestDispatcher("/finished.jsp");
+		} else {
+			// 完了→未完了だったらToDoリストへ遷移
+			rd = request.getRequestDispatcher("/todo.jsp");
+		}
 		rd.forward(request, response);
 		return;
 	}
-
 }
