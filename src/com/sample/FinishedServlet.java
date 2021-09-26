@@ -52,7 +52,13 @@ public class FinishedServlet extends HttpServlet {
 		for (int i = 0; i < list.size(); i++) {
 			for(int j = 0; j < finishArrays.length; j++) {
 				if (list.get(i).getId() == finishArrays[j]) {
-					list.get(i).setFinished("1");
+					// 未完了だったら完了にし、完了だったら未完了に戻す
+					// 三項演算子うまくいかなかった
+					if (list.get(i).getFinished() == "0") {
+						list.get(i).setFinished("1");
+					} else {
+						list.get(i).setFinished("0");
+					}
 				}
 			}
 		}
