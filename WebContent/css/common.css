@@ -68,15 +68,30 @@ header {
 
 form p {
 	text-align: left;
-	margin-left: 40px;
+	margin-left: 50px;
 }
 
-.todo {
+/* trやtdにmarginは効かないので、tableにborder-spaceで調整 */
+table {
+	border-collapse: separate;
+	/* 列、行で隙間の調整ができる */
+	border-spacing: 0px 5px;
+	margin: auto;
+}
+
+tr {
 	background-color: #fff;
-	border: 2px solid #080000;
-	border-radius: 10px;
-	margin: 5px;
-	padding: 5px;
+}
+
+/* paddingは効くので細かな調整 */
+td {
+	padding: 5px 10px;
+}
+td.start {
+	padding: 5px 0 5px 20px;
+}
+td.end {
+	padding: 5px 20px 5px 10px;
 }
 
 footer {

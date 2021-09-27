@@ -30,13 +30,14 @@
 			<table>
 			<c:forEach items="${ list }" var="todo">
 				<c:if test="${ todo.finished == '0'}">
-				<tr class="todo">
-					<td><input type="checkbox" name="finished" value="${ todo.id }"></td>
+				<tr>
+					<td class="start"><input type="checkbox" name="finished" value="${ todo.id }"></td>
 					<td>[<c:out value="${ todo.id }" />]</td>
 					<td><c:out value="${ todo.task }" /></td>
 					<td><fmt:formatDate value="${ todo.deadline }" /></td>
 					<td><c:out value="${ todo.member }" /></td>
 					<td><a href="edit?id=${ todo.id }">[編集]</a></td>
+					<td class="end"><a href="delete?id=${ todo.id }">[削除]</a></td>
 				</tr>
 				</c:if>
 			</c:forEach>
