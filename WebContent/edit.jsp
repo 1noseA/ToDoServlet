@@ -7,6 +7,7 @@
 <head>
 <meta charset="UTF-8">
 <title>ToDo編集</title>
+<link rel="stylesheet" href="css/common.css" type="text/css" />
 </head>
 <body>
 	<h1>編集</h1>

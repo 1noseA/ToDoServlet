@@ -7,6 +7,7 @@
 <head>
 <meta charset="UTF-8">
 <title>完了リスト</title>
+<link rel="stylesheet" href="css/common.css" type="text/css" />
 </head>
 <body>
 	<h1>完了リスト</h1>

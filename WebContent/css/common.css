@@ -1,0 +1,86 @@
+@charset "UTF-8";
+
+/* 画像左右の隙間をなくす（リセットCSS） */
+*{
+	margin: 0;
+	padding: 0;
+}
+
+body {
+	font-size: 20px;
+	display: flex; /* フレックスボックスに有効に */
+  	flex-flow: column; /* 要素を縦に並べる */
+  	min-height: 100vh; /* 最小でも画面の高さ分のbodyの高さを担保する */
+	color: #080000;
+	background-color: #EDEDED;
+	font-family: 'ヒラギノ角ゴ Pro W3', 'Hiragino Kaku Gothic Pro','メイリオ', 'Meiryo', '游ゴシック', 'Yu Gothic', 'ＭＳ Ｐゴシック', 'MS PGothic', sans-serif;
+}
+
+header {
+	height: 60px;
+}
+
+.band {
+	height: 80px;
+	text-align: center;
+	background-color: #eb6100;
+	margin-bottom: 50px;
+	/* 上下中央ぞろえ */
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.band h1 {
+	color: #fff;
+	letter-spacing: 5px;
+}
+
+.content {
+	flex: 1; /* フッター下固定にするため */
+	width: 60%;
+	margin: auto;
+	text-align: center;
+}
+
+.submit-button {
+	font-size: 16px;
+	letter-spacing: 3px;
+	color: #fff;
+	background-color: #004c97;
+	border: 2px solid #080000;
+	border-radius: 10px;
+	cursor: pointer;
+	padding: 5px 20px;
+	margin-left: 10px;
+}
+
+.finish-button {
+	font-size: 16px;
+	letter-spacing: 3px;
+	background-color: #fccc00;
+	border: 2px solid #080000;
+	border-radius: 10px;
+	cursor: pointer;
+	padding: 5px 20px;
+	margin: 30px 0;
+}
+
+form p {
+	text-align: left;
+	margin-left: 40px;
+}
+
+.todo {
+	background-color: #fff;
+	border: 2px solid #080000;
+	border-radius: 10px;
+	margin: 5px;
+	padding: 5px;
+}
+
+footer {
+	height: 100px;
+	margin-top: 100px;
+	background-color: #15722c;
+}
