@@ -1,10 +1,7 @@
 package com.sample;
 
 import java.io.IOException;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 import javax.servlet.RequestDispatcher;
@@ -57,14 +54,8 @@ public class ToDoServlet extends HttpServlet {
 		}
 
 		String task = request.getParameter("task");
-		SimpleDateFormat format = new SimpleDateFormat("yyyy/MM/dd");
-		Date deadline = null;
-		try {
-			deadline = format.parse(request.getParameter("deadline"));
-		} catch (ParseException e) {
-			// TODO 自動生成された catch ブロック
-			e.printStackTrace();
-		}
+		String deadline = request.getParameter("deadline");
+		deadline = deadline.replace("-", "/");
 		String member = request.getParameter("member");
 		String finished = "0";
 		ToDo todo = new ToDo(id + 1, task, deadline, member, finished);
@@ -76,7 +67,5 @@ public class ToDoServlet extends HttpServlet {
 		RequestDispatcher rd = request.getRequestDispatcher("/todo.jsp");
 		rd.forward(request, response);
 		return;
-
 	}
-
 }

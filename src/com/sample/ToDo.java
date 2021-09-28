@@ -1,16 +1,14 @@
 package com.sample;
 
-import java.util.Date;
-
 public class ToDo {
 
 	private int id;
 	private String task;
-	private Date deadline;
+	private String deadline;
 	private String member;
 	private String finished;
 
-	public ToDo(int id, String task, Date deadline, String member, String finished) {
+	public ToDo(int id, String task, String deadline, String member, String finished) {
 		super();
 		this.id = id;
 		this.task = task;
@@ -35,11 +33,11 @@ public class ToDo {
 		this.task = task;
 	}
 
-	public Date getDeadline() {
+	public String getDeadline() {
 		return deadline;
 	}
 
-	public void setDeadline(Date deadline) {
+	public void setDeadline(String deadline) {
 		this.deadline = deadline;
 	}
 

@@ -1,8 +1,6 @@
 package com.sample;
 
 import java.io.IOException;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.util.List;
 
 import javax.servlet.RequestDispatcher;
@@ -76,15 +74,8 @@ public class ToDoEditServlet extends HttpServlet {
 		ToDo todo = (ToDo) session.getAttribute("todo");
 
 		todo.setTask(request.getParameter("task"));
-		SimpleDateFormat format = new SimpleDateFormat("yyyy/MM/dd");
-		try {
-			todo.setDeadline(format.parse(request.getParameter("deadline")));
-		} catch (ParseException e) {
-			// TODO 自動生成された catch ブロック
-			e.printStackTrace();
-		}
+		todo.setDeadline(request.getParameter("deadline"));
 		todo.setMember(request.getParameter("member"));
-		// todo.setFinished(request.getParameter("finished"));
 
 		// listの何番目かにしないと落ちる
 		list.set(index, todo);
