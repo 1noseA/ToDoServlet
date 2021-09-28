@@ -29,7 +29,9 @@
 
 		<!-- 完了ボタン -->
 		<form action="finished" method="post">
-			<p><input type="submit" value="完了" class="finish-button" /></p>
+			<c:if test="${ list != null }">
+				<p><input type="submit" value="完了" class="finish-button" /></p>
+			</c:if>
 
 			<!-- ToDoリスト表示 -->
 			<table>
@@ -38,9 +40,9 @@
 				<tr>
 					<td class="start"><input type="checkbox" name="finished" value="${ todo.id }"></td>
 					<td>[<c:out value="${ todo.id }" />]</td>
-					<td width="40%"><c:out value="${ todo.task }" /></td>
-					<td width="20%"><c:out value="${ todo.deadline }" />までに！</td>
-					<td width="20%"><c:out value="${ todo.member }" />がやる！</td>
+					<td class="task" width="40%"><c:out value="${ todo.task }" /></td>
+					<td class="task" width="20%"><c:out value="${ todo.deadline }" />までに！</td>
+					<td class="task" width="20%"><c:out value="${ todo.member }" />がやる！</td>
 					<td class="end">
 						<a href="edit?id=${ todo.id }">[編集]</a>
 						<a href="delete?id=${ todo.id }">[削除]</a>

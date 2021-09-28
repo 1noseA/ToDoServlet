@@ -23,7 +23,7 @@ header {
 	height: 80px;
 	text-align: center;
 	background-color: #eb6100;
-	margin-bottom: 50px;
+	margin-bottom: 60px;
 	/* 上下中央ぞろえ */
 	display: flex;
 	justify-content: center;
@@ -51,7 +51,7 @@ header {
 	border-radius: 10px;
 	cursor: pointer;
 	padding: 5px 20px;
-	margin-left: 10px;
+	margin-left: 20px;
 }
 
 .finish-button {
@@ -62,12 +62,12 @@ header {
 	border-radius: 10px;
 	cursor: pointer;
 	padding: 5px 20px;
-	margin: 20px 0;
+	margin: 10px 0;
 }
 
 form p {
 	text-align: right;
-	margin-right: 50px;
+	margin-right: 40px;
 }
 
 /* trやtdにmarginは効かないので、tableにborder-spaceで調整 */
@@ -88,6 +88,9 @@ td {
 }
 td.start {
 	padding: 5px 0 5px 20px;
+}
+td.task {
+	text-align: left;
 }
 td.end {
 	padding: 5px 20px 5px 10px;
