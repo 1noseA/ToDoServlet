@@ -43,6 +43,15 @@ public class FinishedServlet extends HttpServlet {
 		List<ToDo> list = (List<ToDo>) session.getAttribute("list");
 
 		String[] ids = request.getParameterValues("finished");
+
+		// もしチェックなしで完了ボタンが押されたら何もしないで戻す
+		RequestDispatcher rd;
+		if (ids == null || ids.length == 0) {
+			rd = request.getRequestDispatcher("/todo.jsp");
+			rd.forward(request, response);
+			return;
+		}
+
 		// 完了にしたタスクのidをリストに入れる
 		// StreamAPIでString配列をint配列にする
 		int[] finishArrays = Stream.of(ids).mapToInt(Integer::parseInt).toArray();
@@ -68,7 +77,6 @@ public class FinishedServlet extends HttpServlet {
 
 		session.setAttribute("list", list);
 
-		RequestDispatcher rd;
 		// 未完了→完了だったら完了リストへ遷移（isDoneがtrue）
 		if (isDone) {
 			rd = request.getRequestDispatcher("/finished.jsp");

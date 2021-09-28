@@ -16,9 +16,9 @@
 	<div class="content">
 		<!-- ToDo入力 -->
 		<form action="ToDo" method="post">
-			タスク：<input type="text" name="task" />
-			期日：<input type="text" name="deadline" />
-			担当：<input type="text" name="member" />
+			タスク：<input type="text" name="task" required/>
+			期日：<input type="text" name="deadline" required/>
+			担当：<input type="text" name="member" required/>
 			<input type="submit" value="登録" class="submit-button" />
 		</form>
 
