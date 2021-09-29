@@ -18,7 +18,7 @@
 			<%-- valueの中にEL式を入れることでフォームの中に表示される --%>
 			タスク：<input type="text" name="task" value="${ todo.task }" />
 			<%-- input valueの中にそのままJSTLを入れてもいいっぽい --%>
-			期日：<input type="text" name="deadline" value="<fmt:formatDate value="${ todo.deadline }" />" />
+			期日：<input type="text" name="deadline" value="${ todo.deadline }" />
 			担当：<input type="text" name="member" value="${ todo.member }" />
 			<input type="submit" value="編集" />
 		</form>

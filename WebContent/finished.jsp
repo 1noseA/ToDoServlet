@@ -22,7 +22,7 @@
 					<td><input type="checkbox" name="finished" value="${ todo.id }"></td>
 					<td>[<c:out value="${ todo.id }" />]</td>
 					<td><c:out value="${ todo.task }" /></td>
-					<td><fmt:formatDate value="${ todo.deadline }" /></td>
+					<td><c:out value="${ todo.deadline }" /></td>
 					<td><c:out value="${ todo.member }" /></td>
 				</tr>
 			</c:if>

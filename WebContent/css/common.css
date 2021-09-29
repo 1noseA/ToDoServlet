@@ -15,8 +15,26 @@ body {
 	font-family: 'ヒラギノ角ゴ Pro W3', 'Hiragino Kaku Gothic Pro','メイリオ', 'Meiryo', '游ゴシック', 'Yu Gothic', 'ＭＳ Ｐゴシック', 'MS PGothic', sans-serif;
 }
 
+/* ヘッダー */
 header {
+	position: relative;
 	height: 60px;
+	text-align: right;
+}
+
+.link {
+	position: absolute;
+	bottom: 0;
+	right: 0;
+}
+
+a {
+	text-decoration: none;
+	color: #080000;
+}
+
+.dummy {
+	margin-right: 20px;
 }
 
 .band {
@@ -35,6 +53,7 @@ header {
 	letter-spacing: 5px;
 }
 
+/* 内容 */
 .content {
 	flex: 1; /* フッター下固定にするため */
 	width: 80%;
@@ -42,6 +61,7 @@ header {
 	text-align: center;
 }
 
+/* ボタン */
 .submit-button {
 	font-size: 16px;
 	letter-spacing: 3px;
@@ -65,11 +85,12 @@ header {
 	margin: 10px 0;
 }
 
-form p {
-	text-align: right;
-	margin-right: 40px;
+.left {
+	background-color: #EDEDED;
+	text-align: left;
 }
 
+/* リスト表示 */
 /* trやtdにmarginは効かないので、tableにborder-spaceで調整 */
 table {
 	border-collapse: separate;
@@ -87,7 +108,7 @@ td {
 	padding: 5px 10px;
 }
 td.start {
-	padding: 5px 0 5px 20px;
+	padding: 5px;
 }
 td.task {
 	text-align: left;
@@ -96,6 +117,7 @@ td.end {
 	padding: 5px 20px 5px 10px;
 }
 
+/* フッター */
 footer {
 	height: 100px;
 	margin-top: 100px;

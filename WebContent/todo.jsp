@@ -8,9 +8,15 @@
 <meta charset="UTF-8">
 <title>ToDoリスト</title>
 <link rel="stylesheet" href="css/common.css" type="text/css" />
+<link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
 </head>
 <body>
-	<header></header>
+	<header>
+		<div class="link">
+			<span class="dummy"><i class="fas fa-cog"></i>ユーザ設定</span>
+			<a href="/ToDoServlet/finished.jsp"><i class="far fa-hand-point-right">完了リストへ</i></a>
+		</div>
+	</header>
 	<div class="band"><h1>ToDoリスト</h1></div>
 
 	<div class="content">
@@ -29,12 +35,14 @@
 
 		<!-- 完了ボタン -->
 		<form action="finished" method="post">
+			<table>
+			<%-- リスト消した場合では完了ボタン残ってしまう --%>
 			<c:if test="${ list != null }">
-				<p><input type="submit" value="完了" class="finish-button" /></p>
+				<th class="left"><input type="submit" value="完了" class="finish-button" /></th>
 			</c:if>
 
 			<!-- ToDoリスト表示 -->
-			<table>
+
 			<c:forEach items="${ list }" var="todo">
 				<c:if test="${ todo.finished == '0'}">
 				<tr>
@@ -43,10 +51,8 @@
 					<td class="task" width="40%"><c:out value="${ todo.task }" /></td>
 					<td class="task" width="20%"><c:out value="${ todo.deadline }" />までに！</td>
 					<td class="task" width="20%"><c:out value="${ todo.member }" />がやる！</td>
-					<td class="end">
-						<a href="edit?id=${ todo.id }">[編集]</a>
-						<a href="delete?id=${ todo.id }">[削除]</a>
-					</td>
+					<td><a href="edit?id=${ todo.id }"><i class="fas fa-pencil-alt"></i></a></td>
+					<td class="end"><a href="delete?id=${ todo.id }"><i class="fas fa-trash-alt"></i></a></td>
 				</tr>
 				</c:if>
 			</c:forEach>
