@@ -74,7 +74,9 @@ public class ToDoEditServlet extends HttpServlet {
 		ToDo todo = (ToDo) session.getAttribute("todo");
 
 		todo.setTask(request.getParameter("task"));
-		todo.setDeadline(request.getParameter("deadline"));
+		String deadline = request.getParameter("deadline");
+		deadline = deadline.replace("-", "/");
+		todo.setDeadline(deadline);
 		todo.setMember(request.getParameter("member"));
 
 		// listの何番目かにしないと落ちる

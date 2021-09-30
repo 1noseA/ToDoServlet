@@ -22,11 +22,12 @@
 	<div class="content">
 		<!-- ToDo入力 -->
 		<form action="ToDo" method="post">
-			タスク：<input type="text" name="task" required/>
+			タスク：<input type="text" name="task" required />
 			<!-- type="date"にするとカレンダ浴に入力になる。valueは"yyyy-mm-dd" -->
-			期日：<input type="date" name="deadline" required/>
-			担当：<%-- <input type="text" name="member" required/> --%>
-			<select name="member">
+			期日：<input type="date" name="deadline" required />
+			担当：
+			<select name="member" required>
+				<option disabled selected value>選択してね</option>
 				<option value="N">N</option>
 				<option value="Y">Y</option>
 			</select>
