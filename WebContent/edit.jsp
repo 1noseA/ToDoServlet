@@ -23,10 +23,10 @@
 		<form action="edit" method="post">
 			<input type="hidden" name="id" value="${todo.id}" />
 			<%-- valueの中にEL式を入れることでフォームの中に表示される --%>
-			タスク：<input type="text" name="task" value="${ todo.task }" required />
-			期日：<input type="date" name="deadline" value="${ todo.deadline }" required />
+			タスク：<input type="text" name="task" value="${ todo.task }" class="form" required />
+			期日：<input type="date" name="deadline" value="${ todo.deadline }" class="form" required />
 			担当：<%-- <input type="text" name="member" value="${ todo.member }" /> --%>
-			<select name="member">
+			<select name="member" class="select">
 				<option value="N" <c:if test="${ todo.member == 'N' }">selected</c:if>>N</option>
 				<option value="Y" <c:if test="${ todo.member == 'Y' }">selected</c:if>>Y</option>
 			</select>

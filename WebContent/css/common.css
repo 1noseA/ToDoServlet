@@ -62,9 +62,21 @@ a {
 	text-align: center;
 }
 
+/* 入力フォーム */
+.form {
+	width: 200px;
+	height: 18px;
+	margin-right: 10px;
+}
+
+/* プルダウン */
+.select {
+	width: 200px;
+	height: 24px;
+}
+
 /* ボタン */
 .submit-button {
-	font-size: 16px;
 	letter-spacing: 3px;
 	color: #fff;
 	background-color: #004c97;
@@ -76,7 +88,7 @@ a {
 }
 
 .finish-button {
-	font-size: 16px;
+	font-weight:  bold;
 	letter-spacing: 3px;
 	background-color: #fccc00;
 	border: 2px solid #080000;
@@ -87,7 +99,6 @@ a {
 }
 
 .back-button {
-	font-size: 16px;
 	letter-spacing: 3px;
 	color: #fff;
 	background-color: #004c97;
