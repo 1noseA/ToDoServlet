@@ -37,15 +37,15 @@ public class ToDoEditServlet extends HttpServlet {
 		int id = Integer.parseInt(request.getParameter("id"));
 
 		// 編集用のインスタンス生成
-		ToDo todo = new ToDo(id, null, null, null, "0");
+		// ToDo todo = new ToDo(id, null, null, null, "0");
 
 		for (ToDo t : list) {
 			// セッションのToDoリストと編集リクエストされたidが等しかったら
 			if (t.getId() == id) {
 				// 編集用インスタンスに編集したいToDoのデータを入れる
-				todo = t;
+				// todo = t;
 				// セッションにセットする
-				session.setAttribute("todo", todo);
+				session.setAttribute("todo", t);
 			}
 		}
 
